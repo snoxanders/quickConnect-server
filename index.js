@@ -6,7 +6,7 @@ const io = require('socket.io')(server, {
   cors: { origin: 'https://quickconnect-client.vercel.app' }  
 });
 
-const PORT = process.env.PORT || 3001;  
+const PORT = process.env.PORT ||  
 
 io.on('connection', (socket) => {
   console.log('User connected', socket.id);
