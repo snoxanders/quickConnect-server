@@ -2,27 +2,24 @@ const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
 
-// Configuração do Socket.IO com CORS
 const io = require('socket.io')(server, {
-  cors: { origin: 'https://quickconnect-client.vercel.app' }  // Permitir acesso da URL do front-end
+  cors: { origin: 'https://quickconnect-client.vercel.app' }  
 });
 
-// Usar a porta fornecida pelo Railway ou 3001 como fallback
-const PORT = process.env.PORT || 8080;  
+const PORT = process.env.PORT || 3001;  
 
 io.on('connection', (socket) => {
-  console.log('User connected', socket.id);  // Log quando um usuário se conecta
+  console.log('User connected', socket.id);
 
   socket.on('disconnect', (reason) => {
-    console.log('User disconnected', socket.id);  // Log quando um usuário se desconecta
+    console.log('User disconnected', socket.id);
   });
 
   socket.on('set_username', (username) => {
-    socket.data.username = username;  // Armazenar o nome de usuário na conexão do socket
+    socket.data.username = username;
   });
 
   socket.on('message', (text) => {
-    // Emitir a mensagem recebida para todos os clientes conectados
     io.emit('receive_message', {
       text,
       authorId: socket.id,
@@ -31,7 +28,6 @@ io.on('connection', (socket) => {
   });
 });
 
-// Iniciar o servidor na porta especificada
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on port ${PORT}`);  // Log para confirmar que o servidor está rodando
+  console.log(`Server running on port ${PORT}`);
 });
