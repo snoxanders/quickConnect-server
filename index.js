@@ -1,6 +1,12 @@
 const app = require('express')();
 const server = require('http').createServer(app)
-const io = require('socket.io')(server, {cors: {origin: 'http://localhost:5173'}})
+const io = require('socket.io')(server, {
+  cors: {
+    origin: 'https://quick-connect-client.vercel.app',
+    methods: ['GET', 'POST'],
+    credentials: true,
+  },
+});
 
 
 const PORT = process.env.PORT || 3001; 
