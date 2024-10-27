@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,8 +13,5 @@
     "express": "^4.21.1",
     "socket.io": "^4.8.0",
     "socket.io-client": "^4.8.0"
-  },
-  "engines": {
-    "node": "14.x" 
   }
 }
