@@ -8,7 +8,7 @@ const io = require('socket.io')(server, {
 });
 
 // Usar a porta fornecida pelo Railway ou 3001 como fallback
-const PORT = process.env.PORT || 3001;  
+const PORT = process.env.PORT || 8080;  
 
 io.on('connection', (socket) => {
   console.log('User connected', socket.id);  // Log quando um usuário se conecta
