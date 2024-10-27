@@ -9,6 +9,11 @@ const io = require('socket.io')(server, {
 const PORT = process.env.PORT ||  
 
 io.on('connection', (socket) => {
+
+    socket.on('connect', () => {
+        console.log('Connected to server');
+      });
+      
   console.log('User connected', socket.id);
 
   socket.on('disconnect', (reason) => {
