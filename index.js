@@ -11,6 +11,10 @@ const io = require('socket.io')(server, {
 
 const PORT = process.env.PORT || 3001; 
 
+app.get('/', (req, res) => {
+  res.send('Servidor rodando!');
+});
+
 io.on('connection',socket => {
     console.log('Usuario conectado', socket.id)
 
