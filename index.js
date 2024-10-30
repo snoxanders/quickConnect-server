@@ -2,9 +2,9 @@ const app = require('express')();
 const server = require('http').createServer(app)
 const io = require('socket.io')(server, {
   cors: {
-    origin: 'https://quick-connect-client.vercel.app/', // Permitir o domínio do cliente
-    methods: ['GET', 'POST'],                          // Métodos permitidos
-    credentials: true                                  // Permitir cookies e cabeçalhos de autorização
+    origin: 'https://quick-connect-client.vercel.app',
+    methods: ['GET', 'POST'],                         
+    credentials: true                                  
   },
 });
 
