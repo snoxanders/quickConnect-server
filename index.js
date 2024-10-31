@@ -1,25 +1,15 @@
 const app = require('express')();
 const server = require('http').createServer(app)
-const io = require('socket.io')(server, {
-  cors: {
-    origin: 'https://quick-connect-client.vercel.app',
-    methods: ['GET', 'POST'],                         
-    credentials: true                                  
-  },
-});
+const io = require('socket.io')(server, {cors: {origin: 'http://localhost:5173'}})
 
 
 const PORT = process.env.PORT || 3001; 
-
-app.get('/', (req, res) => {
-  res.send('Servidor rodando!');
-});
 
 io.on('connection',socket => {
     console.log('Usuario conectado', socket.id)
 
     socket.on('disconnect', reason => {
-        console.log('Usuario desconectado!', socket.id)
+        console.log('Usuario desconectado', socket.id)
     })
 
     socket.on('set_username', username => {
