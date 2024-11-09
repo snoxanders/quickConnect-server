@@ -9,7 +9,9 @@ app.get('/', (req, res) => {
   res.send('Servidor rodando!');
 });
 
-io.on('connection',socket => {
+
+
+/*io.on('connection',socket => {
     console.log('Usuario conectado', socket.id)
 
     socket.on('disconnect', reason => {
@@ -27,7 +29,7 @@ io.on('connection',socket => {
             author: socket.data.username
         })
     })
-})
+})*/
 
 server.listen(PORT, '0.0.0.0', () => {
     console.log('aaaaaaa')
