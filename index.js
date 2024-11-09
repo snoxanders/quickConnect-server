@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 const app = express()
 
 const server = http.createServer(app);
-const io = socketIo(server)
+const io = socketIo(server,{cors: {origin: '*', methods: ["GET", "POST"]}})
 
 
 app.get('/', (req, res) => {
